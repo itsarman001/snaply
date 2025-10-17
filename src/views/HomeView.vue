@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import ImageUploadIndex from '@/components/ImageUpload/index.vue'
+// Add your code here
 </script>
 
 <template>
-  <main class="">
-    <image-upload-index />
+  <main>
+    <h1>Snaply</h1>
   </main>
 </template>
