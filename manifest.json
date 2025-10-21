@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Snaply",
+  "version": "1.0",
+  "description": "Record your screen and download the video.",
+  "permissions": ["tabCapture", "downloads"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
