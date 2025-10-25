@@ -2,88 +2,101 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Snaply — Record screen and download</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Snaply — Record Screen & Download</title>
+
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Scripts -->
     <script src="popup.js" defer></script>
   </head>
-  <body class="snaply-body">
-    <div class="snaply-wrapper">
-      <header class="snaply-header">
-        <h1 class="snaply-title">Snaply: Record Screen & Download</h1>
-      </header>
 
-      <main class="snaply-main">
-        <section class="snaply-controls">
-          <!-- Clean 2x2 grid: 3 options + Start Recording (evenly sized) -->
-          <div class="snaply-grid" id="snaplyGrid" role="list">
-            <div class="grid-item" role="listitem">
-              <button
-                class="btn btn--secondary grid-btn"
-                data-role="option-mic"
-                aria-pressed="false"
-              >
-                <img src="icons/actions/mic_on.svg" alt="Microphone" />
-                <span>Microphone</span>
-              </button>
-            </div>
+  <body class="body">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="title">Snaply: Capture & Save</h1>
+    </header>
 
-            <div class="grid-item" role="listitem">
-              <button
-                class="btn btn--secondary grid-btn"
-                data-role="option-camera"
-                aria-pressed="false"
-              >
-                <img src="icons/actions/camera_on.svg" alt="Camera" />
-                <span>Camera</span>
-              </button>
-            </div>
-
-            <div class="grid-item" role="listitem">
-              <button
-                class="btn btn--secondary grid-btn"
-                data-role="option-format"
-                aria-pressed="false"
-              >
-                <img src="icons/actions/video_icon.svg" alt="Video format" />
-                <span>Video Format</span>
-              </button>
-            </div>
-
-            <div class="grid-item" role="listitem">
-              <button
-                class="btn btn--secondary grid-btn"
-                data-role="option-controller"
-                aria-pressed="false"
-              >
-                <img src="icons/actions/controls_icon.svg" alt="Controller" />
-                <span>Controller</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="snaply-action">
+    <!-- Main Controls -->
+    <main class="main">
+      <section class="controls">
+        <div class="grid" id="snaplyGrid" role="list">
+          <!-- Microphone Option -->
+          <div class="grid-item" role="listitem">
             <button
-              class="btn btn--accent"
-              id="startRecording"
-              data-role="start"
+              class="btn btn--secondary grid-btn"
+              data-role="option-mic"
               aria-pressed="false"
             >
-              Start Recording
-            </button>
-            <button
-              class="btn btn--accent"
-              id="stopRecording"
-              data-role="stop"
-              aria-pressed="false"
-            >
-              Stop Recording
+              <img src="icons/actions/mic_on.svg" alt="Microphone" />
+              <span>Microphone</span>
             </button>
           </div>
-        </section>
-      </main>
 
-      <footer class="snaply-footer"></footer>
-    </div>
+          <!-- Camera Option -->
+          <div class="grid-item" role="listitem">
+            <button
+              class="btn btn--secondary grid-btn"
+              data-role="option-camera"
+              aria-pressed="false"
+            >
+              <img src="icons/actions/camera_on.svg" alt="Camera" />
+              <span>Camera</span>
+            </button>
+          </div>
+
+          <!-- Video Format Option -->
+          <div class="grid-item" role="listitem">
+            <button
+              class="btn btn--secondary grid-btn"
+              data-role="option-format"
+              aria-pressed="false"
+            >
+              <img src="icons/actions/video_icon.svg" alt="Video format" />
+              <span>Video Format</span>
+            </button>
+          </div>
+
+          <!-- Controller Option -->
+          <div class="grid-item" role="listitem">
+            <button
+              class="btn btn--secondary grid-btn"
+              data-role="option-controller"
+              aria-pressed="false"
+            >
+              <img src="icons/actions/controls_icon.svg" alt="Controller" />
+              <span>Controller</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action">
+          <button
+            class="btn btn--primary btn--accent"
+            id="startRecording"
+            data-role="start"
+            aria-pressed="false"
+          >
+            🎬 Start Recording
+          </button>
+
+          <button
+            class="btn btn--primary btn--danger"
+            id="stopRecording"
+            data-role="stop"
+            aria-pressed="false"
+          >
+            ⏹ Stop Recording
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p class="footer-text">© 2025 Snaply</p>
+    </footer>
   </body>
 </html>

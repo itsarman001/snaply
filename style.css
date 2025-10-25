@@ -1,195 +1,179 @@
-/* Root variables */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* =============================
+   🎨 Global Styles
+============================= */
 :root {
-  --primary-color: #222831;
-  --secondary-color: #393e46;
-  --accent-color: #ffd369;
-  --text-color: #eeeeee;
-  --surface-color: #2b2f36;
-  --radius: 8px;
+  --primary: #222831;
+  --secondary: #393e46;
+  --light: #eeeeee;
+  --accent: #00adb5;
+  --danger: #ef4444;
+  --success: #34d399;
+
+  --size-xs: 2px;
+  --size-sm: 4px;
+  --size-md: 8px;
+  --size-lg: 12px;
+  --size-xl: 16px;
+  --size-2xl: 20px;
+  --size-3xl: 36px;
 }
 
-/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-html,
-body {
-  height: 100%;
+ul,
+li {
+  list-style: none;
 }
 
 a {
   text-decoration: none;
   color: inherit;
 }
-ul {
-  list-style: none;
-}
 
-/* Global */
-body.snaply-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--primary-color);
-  color: var(--text-color);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.snaply-wrapper {
-  width: 320px;
-  max-width: 100%;
-  background: linear-gradient(
-    180deg,
-    var(--secondary-color),
-    var(--surface-color)
-  );
-  color: var(--text-color);
-  padding: 16px;
-  border-radius: var(--radius);
-}
-
-.snaply-header {
-  margin-bottom: 12px;
-  padding-bottom: 2px;
-  border-bottom: 1px solid var(--accent-color);
-}
-.snaply-title {
-  font-size: 16px;
-  font-weight: 600;
-  text-align: center;
-}
-
-.snaply-main {
-  display: block;
-}
-.snaply-controls {
+/* =============================
+   🧱 Layout
+============================= */
+.body {
+  background: var(--primary);
+  color: var(--light);
+  width: 350px;
+  height: 420px;
+  padding: var(--size-xl);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  justify-content: space-between;
 }
 
-.snaply-options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-  padding: 0;
-}
-.snaply-option {
-  display: inline-flex;
+/* =============================
+   🏷️ Header
+============================= */
+.header {
+  text-align: center;
+  margin-bottom: var(--size-md);
 }
 
-.snaply-action {
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  color: var(--accent);
+}
+
+/* =============================
+   🎛️ Controls Grid
+============================= */
+.grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  width: 100%;
-}
-
-/* Grid layout for 2x2 evenly sized buttons */
-.snaply-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  grid-auto-rows: 88px; /* equal row heights */
-  width: 100%;
+  gap: var(--size-lg);
+  margin-top: var(--size-md);
 }
 
 .grid-item {
   width: 100%;
-  height: 100%;
+  height: 100px;
 }
 
 .grid-btn {
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  padding: 0 12px;
 }
 
-/* Icon inside grid button */
-.grid-btn img {
-  width: 22px;
-  height: 22px;
-  display: inline-block;
-  margin-right: 10px;
-  flex-shrink: 0;
-}
-
-.grid-btn span {
-  display: inline-block;
-}
-
-/* Buttons */
+/* =============================
+   🔘 Buttons
+============================= */
 .btn {
+  font-size: 0.9rem;
   border: none;
-  padding: 8px 14px;
-  font-size: 14px;
+  border-radius: var(--size-md);
+  transition: all 0.25s ease;
   cursor: pointer;
-  border-radius: 6px;
-  transition: transform 120ms ease, box-shadow 120ms ease;
-  background: transparent;
-  color: var(--text-color);
 }
 
 .btn:active {
-  transform: translateY(1px);
+  transform: scale(0.97);
 }
 
 .btn--active {
-  background: var(--accent-color);
-  color: var(--primary-color);
+  background-color: var(--accent) !important;
+  color: var(--primary) !important;
+}
+
+/* Primary Buttons */
+.btn--primary {
+  padding: var(--size-md) var(--size-xl);
+  background-color: var(--accent);
+  color: var(--primary);
   font-weight: 600;
 }
 
-/* convenience: allow toggling '.is-active' too */
-.btn.is-active {
-  background: var(--accent-color);
-  color: var(--primary-color);
-  font-weight: 600;
+.btn--primary:hover {
+  background-color: #06c3cc;
 }
 
-.btn--accent {
-  background: var(--accent-color);
-  color: var(--primary-color);
-  font-weight: 600;
-}
-
-.btn--accent:hover {
-  filter: brightness(0.98);
-}
-
+/* Secondary Buttons */
 .btn--secondary {
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text-color);
+  background-color: var(--secondary);
+  color: var(--light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-md);
+}
+
+.btn--secondary img {
+  height: 22px;
+  width: 22px;
 }
 
 .btn--secondary:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background-color: var(--accent);
+  color: var(--primary);
 }
 
-/* Small helpers */
-.snaply-footer {
-  margin-top: 12px;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);
+/* Accent Variants */
+.btn--accent {
+  background-color: var(--accent);
 }
 
-@media (max-width: 360px) {
-  .snaply-wrapper {
-    padding: 12px;
-    width: 280px;
-  }
-  .snaply-title {
-    font-size: 14px;
-  }
-  .btn {
-    padding: 8px 10px;
-    font-size: 13px;
-  }
+.btn--danger {
+  background-color: var(--danger);
+  color: var(--light);
+}
+
+.btn--danger:hover {
+  background-color: #dc2626;
+}
+
+/* =============================
+   🎬 Action Buttons
+============================= */
+.action {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-md);
+  margin-top: var(--size-xl);
+}
+
+/* =============================
+   🦶 Footer
+============================= */
+.footer {
+  text-align: center;
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-top: var(--size-lg);
+}
+
+.footer-text {
+  color: var(--light);
 }

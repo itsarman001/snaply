@@ -1,26 +1,54 @@
-// Popup script for the extension
-// Handles toggling active state for the 2x2 grid buttons.
+// Popup script for the Snaply extension
+// Handles toggling active states for control grid buttons and recording buttons.
 
 document.addEventListener("DOMContentLoaded", () => {
   const gridButtons = Array.from(document.querySelectorAll(".grid-btn"));
   const startBtn = document.getElementById("startRecording");
+  const stopBtn = document.getElementById("stopRecording");
 
-  // Toggle behavior for option buttons (grid). These become accent-styled when active.
+  /* ===============================
+     🎛️ GRID BUTTONS (Mic, Camera, etc.)
+  =============================== */
   gridButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
+      // Make only one active at a time
+      gridButtons.forEach((b) => {
+        if (b !== btn) {
+          b.setAttribute("aria-pressed", "false");
+        }
+      });
+
+      // Toggle current one
       const nowActive = btn.classList.toggle("btn--active");
       btn.setAttribute("aria-pressed", String(nowActive));
     });
   });
 
-  // Start button (outside grid) - keep its accent styling constant; only toggle pressed state and label
-  if (startBtn) {
+  /* ===============================
+     🎬 RECORDING BUTTONS
+  =============================== */
+  if (startBtn && stopBtn) {
     startBtn.addEventListener("click", () => {
-      const pressed = startBtn.getAttribute("aria-pressed") === "true";
-      const now = !pressed;
-      startBtn.setAttribute("aria-pressed", String(now));
-      startBtn.textContent = now ? "Stop Recording" : "Start Recording";
-      // If you want visual recording indicator, consider adding a small red dot or changing inner markup here.
+      startBtn.setAttribute("aria-pressed", "true");
+      stopBtn.setAttribute("aria-pressed", "false");
+
+      startBtn.textContent = "🎬 Recording...";
+      stopBtn.disabled = false;
     });
+
+    stopBtn.addEventListener("click", () => {
+      stopBtn.setAttribute("aria-pressed", "true");
+      startBtn.setAttribute("aria-pressed", "false");
+
+      startBtn.textContent = "Start Recording";
+      startBtn.disabled = false;
+      stopBtn.disabled = true;
+
+      stopBtn.disabled = true;
+      startBtn.textContent = "🎬 Start Recording";
+    });
+
+    // Initial state
+    stopBtn.disabled = true;
   }
 });
