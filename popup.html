@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Snaply</title>
-
-    <style>
-      .recorder_wrapper {
-        height: 400px;
-        width: 350px;
-
-        & button {
-          padding: 1rem 1.5rem;
-          border: 1px solid transparent;
-          border-radius: 13px;
-        }
-      }
-    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Snaply — Record screen and download</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="popup.js" defer></script>
   </head>
-  <body>
-    <div class="recorder_wrapper">
-      <button id="start">Start Recording</button>
-      <button id="stop" disabled>Stop Recording</button>
-      <script src="popup.js"></script>
+  <body class="snaply-body">
+    <div class="snaply-wrapper">
+      <header class="snaply-header">
+        <h1 class="snaply-title">Snaply: Record Screen & Download</h1>
+      </header>
+
+      <main class="snaply-main">
+        <section class="snaply-controls">
+          <ul class="snaply-options">
+            <li class="snaply-option">
+              <button class="btn btn--secondary">Microphone</button>
+            </li>
+            <li class="snaply-option">
+              <button class="btn btn--secondary">Camera</button>
+            </li>
+            <li class="snaply-option">
+              <button class="btn btn--secondary">Controller</button>
+            </li>
+          </ul>
+
+          <div class="snaply-action">
+            <button class="btn btn--accent" id="startRecording">
+              Start Recording
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="snaply-footer"></footer>
     </div>
   </body>
 </html>

@@ -1,1 +1,1 @@
-// Background Js
+// Background script for the extension
