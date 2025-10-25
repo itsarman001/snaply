@@ -177,3 +177,33 @@ a {
 .footer-text {
   color: var(--light);
 }
+/* =============================
+   📐 Icon Sizes
+============================= */
+.icon--sm {
+  width: 16px;
+  height: 16px;
+}
+.icon--lg {
+  width: 24px;
+  height: 24px;
+}
+
+/* =============================
+   🎨 Icon
+============================= */
+.icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: currentColor;
+  -webkit-mask-image: var(--mask);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-image: var(--mask);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
