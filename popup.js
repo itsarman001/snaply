@@ -1,54 +1,35 @@
-// Popup script for the Snaply extension
-// Handles toggling active states for control grid buttons and recording buttons.
+// Popup.js - Handles the popup UI for the browser extension
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleMicBtn = document.getElementById("toggleMicBtn");
+  const toggleCameraBtn = document.getElementById("toggleCameraBtn");
+  const toggleControlsBtn = document.getElementById("toggleControlsBtn");
+  const toggleVideoFormat = document.getElementById("toggleVideoFormatBtn");
+  const startAndPauseRecording = document.getElementById(
+    "startAndPauseRecording"
+  );
+  const stopBtn = document.getElementById("stopBtn");
 
-document.addEventListener("DOMContentLoaded", () => {
-  const gridButtons = Array.from(document.querySelectorAll(".grid-btn"));
-  const startBtn = document.getElementById("startRecording");
-  const stopBtn = document.getElementById("stopRecording");
+  function toggleActiveClass(button) {
+    button.classList.toggle("btn--active");
+  }
 
-  /* ===============================
-     🎛️ GRID BUTTONS (Mic, Camera, etc.)
-  =============================== */
-  gridButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      // Make only one active at a time
-      gridButtons.forEach((b) => {
-        if (b !== btn) {
-          b.setAttribute("aria-pressed", "false");
-        }
-      });
-
-      // Toggle current one
-      const nowActive = btn.classList.toggle("btn--active");
-      btn.setAttribute("aria-pressed", String(nowActive));
-    });
+  toggleMicBtn.addEventListener("click", function () {
+    toggleActiveClass(toggleMicBtn);
+    // chrome.runtime.sendMessage({ action: "toggleMic" });
   });
 
-  /* ===============================
-     🎬 RECORDING BUTTONS
-  =============================== */
-  if (startBtn && stopBtn) {
-    startBtn.addEventListener("click", () => {
-      startBtn.setAttribute("aria-pressed", "true");
-      stopBtn.setAttribute("aria-pressed", "false");
+  toggleCameraBtn.addEventListener("click", function () {
+    toggleActiveClass(toggleCameraBtn);
+    // chrome.runtime.sendMessage({ action: "toggleCamera" });
+  });
 
-      startBtn.textContent = "🎬 Recording...";
-      stopBtn.disabled = false;
-    });
+  toggleControlsBtn.addEventListener("click", function () {
+    toggleActiveClass(toggleControlsBtn);
+    // chrome.runtime.sendMessage({ action: "toggleControls" });
+  });
 
-    stopBtn.addEventListener("click", () => {
-      stopBtn.setAttribute("aria-pressed", "true");
-      startBtn.setAttribute("aria-pressed", "false");
-
-      startBtn.textContent = "Start Recording";
-      startBtn.disabled = false;
-      stopBtn.disabled = true;
-
-      stopBtn.disabled = true;
-      startBtn.textContent = "🎬 Start Recording";
-    });
-
-    // Initial state
-    stopBtn.disabled = true;
-  }
+  toggleVideoFormat.addEventListener("click", function () {
+    toggleActiveClass(toggleVideoFormat);
+    // chrome.runtime.sendMessage({ action: "toggleVideoFormat" });
+  });
 });

@@ -96,6 +96,14 @@ a {
   border-radius: var(--size-md);
   transition: all 0.25s ease;
   cursor: pointer;
+
+  & .enable--icon {
+    display: block;
+  }
+
+  & .disable--icon {
+    display: none;
+  }
 }
 
 .btn:active {
@@ -105,6 +113,14 @@ a {
 .btn--active {
   background-color: var(--accent) !important;
   color: var(--primary) !important;
+
+  & .enable--icon {
+    display: none !important;
+  }
+
+  & .disable--icon {
+    display: block !important;
+  }
 }
 
 /* Primary Buttons */

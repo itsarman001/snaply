@@ -26,12 +26,18 @@
           <div class="grid-item" role="listitem">
             <button
               class="btn btn--secondary grid-btn"
+              id="toggleMicBtn"
               data-role="option-mic"
               aria-pressed="false"
             >
               <span
-                class="icon"
+                class="icon enable--icon"
                 style="--mask: url('icons/actions/mic_on.svg')"
+                aria-hidden="true"
+              ></span>
+              <span
+                class="icon disable--icon"
+                style="--mask: url('icons/actions/mic_off.svg')"
                 aria-hidden="true"
               ></span>
               <span>Microphone</span>
@@ -42,12 +48,19 @@
           <div class="grid-item" role="listitem">
             <button
               class="btn btn--secondary grid-btn"
+              id="toggleCameraBtn"
               data-role="option-camera"
               aria-pressed="false"
             >
               <span
-                class="icon"
+                class="icon enable--icon"
                 style="--mask: url('icons/actions/camera_on.svg')"
+                aria-hidden="true"
+              ></span>
+
+              <span
+                class="icon disable--icon"
+                style="--mask: url('icons/actions/camera_off.svg')"
                 aria-hidden="true"
               ></span>
               <span>Camera</span>
@@ -58,6 +71,7 @@
           <div class="grid-item" role="listitem">
             <button
               class="btn btn--secondary grid-btn"
+              id="toggleVideoFormatBtn"
               data-role="option-format"
               aria-pressed="false"
             >
@@ -74,6 +88,7 @@
           <div class="grid-item" role="listitem">
             <button
               class="btn btn--secondary grid-btn"
+              id="toggleControlsBtn"
               data-role="option-controller"
               aria-pressed="false"
             >
@@ -91,7 +106,7 @@
         <div class="action">
           <button
             class="btn btn--primary btn--accent"
-            id="startRecording"
+            id="startAndPauseBtn"
             data-role="start"
             aria-pressed="false"
           >
@@ -105,7 +120,7 @@
 
           <button
             class="btn btn--primary btn--danger"
-            id="stopRecording"
+            id="stopBtn"
             data-role="stop"
             aria-pressed="false"
           >
