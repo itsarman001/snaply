@@ -97,11 +97,11 @@ a {
   transition: all 0.25s ease;
   cursor: pointer;
 
-  & .enable--icon {
+  & .enable {
     display: block;
   }
 
-  & .disable--icon {
+  & .disable {
     display: none;
   }
 }
@@ -114,11 +114,11 @@ a {
   background-color: var(--accent) !important;
   color: var(--primary) !important;
 
-  & .enable--icon {
+  & .enable {
     display: none !important;
   }
 
-  & .disable--icon {
+  & .disable {
     display: block !important;
   }
 }
