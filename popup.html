@@ -1,159 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Snaply — Record Screen & Download</title>
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
-
-    <!-- Scripts -->
-    <script src="popup.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snaply: Capture and Save Instanty</title>
   </head>
-
-  <body class="body">
-    <!-- Header -->
-    <header class="header">
-      <h1 class="title">Snaply: Capture & Save</h1>
-    </header>
-
-    <!-- Main Controls -->
-    <main class="main">
-      <section class="controls">
-        <div class="grid" id="snaplyGrid" role="list">
-          <!-- Microphone Option -->
-          <div class="grid-item" role="listitem">
-            <button
-              class="btn btn--secondary grid-btn"
-              id="toggleMicBtn"
-              data-role="option-mic"
-              aria-pressed="false"
-            >
-              <span
-                class="icon enable"
-                style="--mask: url('icons/actions/mic_on.svg')"
-                aria-hidden="true"
-              ></span>
-              <span
-                class="icon disable"
-                style="--mask: url('icons/actions/mic_off.svg')"
-                aria-hidden="true"
-              ></span>
-              <span>
-                Turn Mic
-                <span class="enable">On</span>
-                <span class="disable">Off</span>
-              </span>
-            </button>
-          </div>
-
-          <!-- Camera Option -->
-          <div class="grid-item" role="listitem">
-            <button
-              class="btn btn--secondary grid-btn"
-              id="toggleCameraBtn"
-              data-role="option-camera"
-              aria-pressed="false"
-            >
-              <span
-                class="icon enable"
-                style="--mask: url('icons/actions/camera_on.svg')"
-                aria-hidden="true"
-              ></span>
-
-              <span
-                class="icon disable"
-                style="--mask: url('icons/actions/camera_off.svg')"
-                aria-hidden="true"
-              ></span>
-              <span>
-                Turn Camera
-                <span class="enable">On</span>
-                <span class="disable">Off</span>
-              </span>
-            </button>
-          </div>
-
-          <!-- Video Format Option -->
-          <div class="grid-item" role="listitem">
-            <button
-              class="btn btn--secondary grid-btn"
-              id="toggleVideoFormatBtn"
-              data-role="option-format"
-              aria-pressed="false"
-            >
-              <span
-                class="icon"
-                style="--mask: url('icons/actions/video_icon.svg')"
-                aria-hidden="true"
-              ></span>
-              <span>
-                Video Format
-                <span class="enable">webm</span>
-                <span class="disable">mp4</span>
-              </span>
-            </button>
-          </div>
-
-          <!-- Controller Option -->
-          <div class="grid-item" role="listitem">
-            <button
-              class="btn btn--secondary grid-btn"
-              id="toggleControlsBtn"
-              data-role="option-controller"
-              aria-pressed="false"
-            >
-              <span
-                class="icon"
-                style="--mask: url('icons/actions/controls_icon.svg')"
-                aria-hidden="true"
-              ></span>
-              <span>
-                Turn Controller
-                <span class="enable">On</span>
-                <span class="disable">Off</span>
-              </span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="action">
-          <button
-            class="btn btn--primary btn--accent"
-            id="startAndPauseBtn"
-            data-role="start"
-            aria-pressed="false"
-          >
-            <span
-              class="icon"
-              style="--mask: url('icons/actions/play_icon.svg')"
-              aria-hidden="true"
-            ></span>
-            Start Recording
-          </button>
-
-          <button
-            class="btn btn--primary btn--danger"
-            id="stopBtn"
-            data-role="stop"
-            aria-pressed="false"
-          >
-            <span
-              class="icon"
-              style="--mask: url('icons/actions/stop_icon.svg')"
-              aria-hidden="true"
-            ></span>
-            Stop Recording
-          </button>
-        </div>
-      </section>
+  <body>
+    <header>Snaply: Capture and Save</header>
+    <main>
+      <!-- Quick Options -->
+      <div>
+        <div>Desktop</div>
+        <div>Entire Screen</div>
+        <div>Tabs</div>
+      </div>
+      <!-- Options -->
+      <div></div>
+      <!-- Start, Pause and Stop Controls-->
+      <div></div>
     </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p class="footer-text">© 2025 Snaply</p>
-    </footer>
   </body>
 </html>

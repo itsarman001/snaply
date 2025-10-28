@@ -1,35 +1,69 @@
-// Popup.js - Handles the popup UI for the browser extension
-document.addEventListener("DOMContentLoaded", function () {
-  const toggleMicBtn = document.getElementById("toggleMicBtn");
-  const toggleCameraBtn = document.getElementById("toggleCameraBtn");
-  const toggleControlsBtn = document.getElementById("toggleControlsBtn");
-  const toggleVideoFormat = document.getElementById("toggleVideoFormatBtn");
-  const startAndPauseRecording = document.getElementById(
-    "startAndPauseRecording"
-  );
-  const stopBtn = document.getElementById("stopBtn");
+let mediaRecorder;
+let recordedChunks = [];
+let stream;
 
-  function toggleActiveClass(button) {
-    button.classList.toggle("btn--active");
-  }
+const startBtn = document.getElementById("startBtn");
+const pauseBtn = document.getElementById("pauseBtn");
+const resumeBtn = document.getElementById("resumeBtn");
+const stopBtn = document.getElementById("stopBtn");
 
-  toggleMicBtn.addEventListener("click", function () {
-    toggleActiveClass(toggleMicBtn);
-    // chrome.runtime.sendMessage({ action: "toggleMic" });
+startBtn.onclick = async () => {
+  const sourceType = document.getElementById("sourceType").value;
+  const format = document.getElementById("format").value;
+
+  // Ask for screen capture permission
+  stream = await navigator.mediaDevices.getDisplayMedia({
+    video: { displaySurface: sourceType },
+    audio: true,
   });
 
-  toggleCameraBtn.addEventListener("click", function () {
-    toggleActiveClass(toggleCameraBtn);
-    // chrome.runtime.sendMessage({ action: "toggleCamera" });
+  // Initialize recorder
+  mediaRecorder = new MediaRecorder(stream, {
+    mimeType: `video/webm; codecs=vp9`,
   });
 
-  toggleControlsBtn.addEventListener("click", function () {
-    toggleActiveClass(toggleControlsBtn);
-    // chrome.runtime.sendMessage({ action: "toggleControls" });
-  });
+  recordedChunks = [];
 
-  toggleVideoFormat.addEventListener("click", function () {
-    toggleActiveClass(toggleVideoFormat);
-    // chrome.runtime.sendMessage({ action: "toggleVideoFormat" });
-  });
-});
+  mediaRecorder.ondataavailable = (e) => {
+    if (e.data.size > 0) recordedChunks.push(e.data);
+  };
+
+  mediaRecorder.onstop = () => {
+    const blob = new Blob(recordedChunks, { type: "video/webm" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `recording.${format}`;
+    a.click();
+  };
+
+  mediaRecorder.start();
+  console.log("Recording started");
+
+  startBtn.disabled = true;
+  pauseBtn.disabled = false;
+  stopBtn.disabled = false;
+};
+
+pauseBtn.onclick = () => {
+  mediaRecorder.pause();
+  pauseBtn.disabled = true;
+  resumeBtn.disabled = false;
+};
+
+resumeBtn.onclick = () => {
+  mediaRecorder.resume();
+  resumeBtn.disabled = true;
+  pauseBtn.disabled = false;
+};
+
+stopBtn.onclick = () => {
+  mediaRecorder.stop();
+  stream.getTracks().forEach((track) => track.stop());
+
+  startBtn.disabled = false;
+  pauseBtn.disabled = true;
+  resumeBtn.disabled = true;
+  stopBtn.disabled = true;
+};
