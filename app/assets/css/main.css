@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #f1bf27;
+  --color-primary-hover: #d9a81e;
+  --color-background-light: #f8f8f6;
+  --color-background-dark: #181611;
+  --color-surface-dark: #221e16;
+  --color-surface-light: #ffffff;
+  --color-border-dark: #393528;
+
+  --font-display:
+    "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-body:
+    "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
