@@ -1,17 +1,17 @@
 export const useAuth = () => {
-  const isAuthenticated = useState('isAuthenticated', () => false)
+  const isAuthenticated = useState("isAuthenticated", () => false);
 
   const login = () => {
-    isAuthenticated.value = true
-  }
+    isAuthenticated.value = true;
+  };
 
   const logout = () => {
-    isAuthenticated.value = false
-  }
+    isAuthenticated.value = false;
+  };
 
   return {
     isAuthenticated,
     login,
-    logout
-  }
-}
+    logout,
+  };
+};

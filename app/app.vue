@@ -5,5 +5,5 @@
 </template>
 
 <script setup>
-const { isAuthenticated } = useAuth()
+const { isAuthenticated } = useAuth();
 </script>
